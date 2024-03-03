@@ -34,6 +34,11 @@ public class AddressController {
 
     }
 
+    @PostMapping
+    public ResponseEntity<Address> saveAddress(@RequestBody Address address){
+        return new ResponseEntity<>(addressService.save(address), HttpStatus.OK);
+    }
+
     @PutMapping("/id")
     public ResponseEntity<Address> updateAddress(@PathVariable Long id, @RequestBody Address updated){
 
